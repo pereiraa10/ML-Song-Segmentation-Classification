@@ -1,7 +1,6 @@
-# First-ML-MIR-Application
-Python scripts I wrote to test out Music Information Retrieval functions within the context of Machine Learning
+# MACHINE LEARNING EVALUATION OF SONG SIMILARITY USING SONG SEGMENTATION CLASSIFIERS
 
-This repository contains the written documentation of my journey to producing my first research paper on music information retrieval using machine learning techniques. Please note, the songs referenced in this project are original compositions and cannot be reproduced without the express written consent of the original composer.
+This repository contains various machine learning approaches to song segmentation classification using machine learning algorithms using music information retrieval techniques. Please note, the songs referenced in this project are original compositions and cannot be reproduced without the express written consent of the original composer.
 
 # A Journey through Suno 
 
