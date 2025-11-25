@@ -41,8 +41,6 @@ Four key audio features were extractedfor each training audio sample:
 *   **Spectral Contrast:** Differentiating tonal and non-tonal content.
     
 
-_**See Appendix 8.1 – Feature Extractionfor further details**_
-
 **3.3 Machine Learning Models** **Selection**
 
 Several machine learning models were tested to classify the audio samples by splitting the training dataset into training and validation (80% training / 20% validation):
@@ -55,8 +53,6 @@ Several machine learning models were tested to classify the audio samples by spl
     
 4.  **Random Forest:** Given the output of Random Forest will change each time a new selection of features is suppressed during training, the model was assessed for accuracy 10 times and achieved an overall 30% training error on the validation dataset.
     
-
-_**See Appendix 8.2 Machine Learning Model Selection for further details**_
 
 **3.4 Label Back testing**
 
@@ -74,9 +70,21 @@ While the SVM model generated 100% accuracy on the validation dataset, the visua
 
 Most notably, the average tempo extracted across the training dataset was measured at ~125 bpm which was not intended. The song was composed at ~80 bpm, but the original audio recording was recorded without a metronome and features a syncopated chord striking pattern, likely influencing the irregular tempo reading.
 
-**Training Audio Sample \[INSERT TABLE\]** **Fig. 1.** Extracted tempo in BPM per audio sample in the training dataset.
+|     Training Audio Sample    |     Tempo in BPM    |
+|------------------------------|---------------------|
+|     Verse 1 A                |     119.12          |
+|     Verse 2 A                |     120.47          |
+|     Verse 1 B                |     128.73          |
+|     Verse 2 B                |     131.85          |
+|     Chorus 1 A               |     131.40          |
+|     Chorus 2 A               |     133.49          |
+|     Chorus 1 B               |     122.19          |
+|     Chorus 2 B               |     126.6           |
+|     Outro                    |     109.46          |
+|------------------------------|---------------------|
+|     Average Tempo            |     124.81          |
 
-_**See Appendix 8.3 Training Audio Sample Extracted Feature Visualization for further details**_
+**Fig. 1.** Extracted tempo in BPM per audio sample in the training dataset.
 
 **4.2 Chord and Melody-Only Analysis**
 
@@ -84,19 +92,25 @@ Testing the SVM model on MIDI samples of isolated chord progression and melody l
 
 The remaining error likely resulted from noise in the feature extraction data. Some notable issues which have arisen:
 
-·      **Tempo.** In the MIDI recordings, the tempo wasconsistently set to 80 bpm and the notes were quantized. However, the tempoextracted from the audio clips averaged closer to ~122 bpm.
+*   **Tempo:** In the MIDI recordings, the tempo wasconsistently set to 80 bpm and the notes were quantized. However, the tempoextracted from the audio clips averaged closer to ~122 bpm.
 
-·      **Chroma**. The chroma features in the MIDIdataset also varied greatly compared to their respective counterparts in the trainingdataset, likely due to differences in the chord voicings and inversions used. Forexample, the Chroma visualization for Verse A in the MIDI sample indicated astrong presence of the C pitch, whereas the training dataset shows a heavieremphasis on the E pitch throughout Verse A. A similar phenomenon occurred whencomparing Chorus A across the training and testing data sets.
+*   **Chroma:** The chroma features in the MIDIdataset also varied greatly compared to their respective counterparts in the trainingdataset, likely due to differences in the chord voicings and inversions used. Forexample, the Chroma visualization for Verse A in the MIDI sample indicated astrong presence of the C pitch, whereas the training dataset shows a heavieremphasis on the E pitch throughout Verse A. A similar phenomenon occurred whencomparing Chorus A across the training and testing data sets.
 
-·      **MFCC.** While MFCC’s have been known fortheir usefulness in speech recognition, the Vocoder melody lacks lyricaldiction which is found in the original audio recording and training dataset andis likely contributing to the incorrect classifications.
+*   **MFCC:** While MFCC’s have been known fortheir usefulness in speech recognition, the Vocoder melody lacks lyricaldiction which is found in the original audio recording and training dataset andis likely contributing to the incorrect classifications.
 
 This indicates that while chord progression and melody are important features for a human observer, it alone does not sufficiently distinguish between song sections using the selected features.
 
-**\[INSERT TABLE\]**
+|     MIDI Sample Section    |     Extracted Tempo          |     Prediction                 |
+|----------------------------|------------------------------|--------------------------------|
+|     Verse A                |     98.80                    |     Verse B                    |
+|     Verse B                |     130.55                   |     Verse B                    |
+|     Chorus A               |     114.84                   |     Verse B                    |
+|     Chorus B               |     127.89                   |     Verse B                    |
+|     Outro                  |     137.29                   |     Verse B                    |
+|----------------------------|------------------------------|--------------------------------|
+|     Total Dataset          |     Average Tempo: 121.87    |     Testing Error:      80%    |
 
 **Fig. 2.** Extracted tempo in BPM and classifier prediction from the SVM model
-
-_**See to Appendix 8.4 MIDI Sample Extracted Feature Visualization for further details**_
 
 **5\. Discussion**
 
@@ -114,8 +128,7 @@ Future work could explore:
     
 *   Incorporating a linear regression model on top of the existing classifiers to expose the probability of each classifier and demonstrate how similar an inputted audio sample is to the overall original training dataset
     
-*   Incorporating semantic data from chord charts and lyrics as part of feature extraction _(See Appendix 8.5 – Original Composition Chord Chart and Lyrics for reference)_
-    
+*   Incorporating semantic data from chord charts and lyrics as part of feature extraction 
 
 **6\. Conclusion**
 
