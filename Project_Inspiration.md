@@ -1,8 +1,4 @@
-# MACHINE LEARNING EVALUATION OF SONG SIMILARITY USING SONG SEGMENTATION CLASSIFIERS
-
-This repository contains various machine learning approaches to song segmentation classification using machine learning algorithms using music information retrieval techniques. Please note, the songs referenced in this project are original compositions and cannot be reproduced without the express written consent of the original composer.
-
-# A Journey through Suno 
+# Project Inspiration: A Journey through Suno
 
 ## Objective: 
 
