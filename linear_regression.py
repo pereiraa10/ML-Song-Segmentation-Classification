@@ -22,15 +22,15 @@ def extract_features(file_path):
 
 # Example dataset (file paths and labels)
 
-files = ['/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Chorus 1a.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Chorus 1b.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Chorus 2a.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Chorus 2b.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Outro.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Verse 1a.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Verse 1b.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Verse 2a.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Verse 2b.mp3'] 
+files = ['dataset/Collide Chorus 1a.mp3',
+         'dataset/Collide Chorus 2a.mp3',
+         'dataset/Collide Chorus 1b.mp3',
+         'dataset/Collide Chorus 2b.mp3',
+         'dataset/Collide Outro.mp3',
+         'dataset/Collide Verse 1a.mp3',
+         'dataset/Collide Verse 1b.mp3',
+         'dataset/Collide Verse 2a.mp3',
+         'dataset/Collide Verse 2b.mp3'] 
 labels = ['Chorus A', 'Chorus B','Chorus A', 'Chorus B', 'Outro', 'Verse A', 'Verse B','Verse A', 'Verse B']
 
 

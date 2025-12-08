@@ -58,7 +58,7 @@ print("True values:", y_test[:])
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.2f}")
 
 
-# OUTPUT
+# OUTPUT EXAMPLE:
 #   Predictions: ['Chorus' 'Chorus2']
 #   True values: ['Verse', 'Chorus2']
 #   Accuracy: 0.50
