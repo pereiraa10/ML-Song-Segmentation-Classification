@@ -7,7 +7,6 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import accuracy_score
-from sklearn.ensemble import RandomForestClassifier
 
 # Load audio file and extract features
 def extract_features(file_path):
@@ -22,20 +21,21 @@ def extract_features(file_path):
     return np.hstack([avg_tempo, mfcc, chroma, spectral_contrast])
 
 # Example dataset (file paths and labels)
-
-files = ['/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Chorus 1a.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Chorus 1b.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Chorus 2a.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Chorus 2b.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Outro.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Verse 1a.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Verse 1b.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Verse 2a.mp3',
-         '/Users/arianapereira/Documents/Masters/Documents for Application/project/Collide clips/Collide Verse 2b.mp3'] 
+files = ['dataset/Collide Chorus 1a.mp3',
+         'dataset/Collide Chorus 2a.mp3',
+         'dataset/Collide Chorus 1b.mp3',
+         'dataset/Collide Chorus 2b.mp3',
+         'dataset/Collide Outro.mp3',
+         'dataset/Collide Verse 1a.mp3',
+         'dataset/Collide Verse 1b.mp3',
+         'dataset/Collide Verse 2a.mp3',
+         'dataset/Collide Verse 2b.mp3'] 
 labels = ['Chorus A', 'Chorus B','Chorus A', 'Chorus B', 'Outro', 'Verse A', 'Verse B','Verse A', 'Verse B']
+
 
 # Extract features
 features = np.array([extract_features(file) for file in files])
+
 
 # Train/test split
 X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
@@ -45,20 +45,14 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-#Train Random Forest
-model=RandomForestClassifier(n_estimators=100)
-model.fit(X_train, y_train)
+# Train k-NN
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
 
-# Evaluate the model
-y_pred = model.predict(X_test)
+# Predict and evaluate
+y_pred = knn.predict(X_test)
 
 print("Predictions:", y_pred[:])
 print("True values:", y_test[:])
 
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.2f}")
-
-
-# OUTPUT
-#   Predictions: ['Chorus' 'Chorus2']
-#   True values: ['Verse', 'Chorus2']
-#   Accuracy: 0.50
