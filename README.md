@@ -2,7 +2,7 @@
 
 ## **ABSTRACT**
 
-This repository explores the feasibility of using machine learning techniques torecognize which segment of a song is most similar to another input audiosample. By leveraging Support Vector Machines (SVMs), and features such as tempo, Mel-frequency cepstral coefficients (MFCCs), chroma, and spectral contrast, the research investigates whether these machine learning models can accurately identify musicological concepts in audio clips by comparing themagainst labeled training dataset. The study presents an experimental frameworkfor feature extraction, model training, and evaluation, using audio dataannotated with segment labels as an example proof of concept. Resultsdemonstrate the model's potential to capture structural similarities and thebasis for evaluating song similarity to inform future applications in musicinformation retrieval.
+This repository explores the feasibility of using machine learning techniques to recognize which segment of a song is most similar to another input audiosample. By leveraging Support Vector Machines (SVMs), and features such as tempo, Mel-frequency cepstral coefficients (MFCCs), chroma, and spectral contrast, the research investigates whether these machine learning models can accurately identify musicological concepts in audio clips by comparing themagainst labeled training dataset. The study presents an experimental frameworkfor feature extraction, model training, and evaluation, using audio dataannotated with segment labels as an example proof of concept. Resultsdemonstrate the model's potential to capture structural similarities and thebasis for evaluating song similarity to inform future applications in musicinformation retrieval.
 
 ## **1\. INTRODUCTION**
 
